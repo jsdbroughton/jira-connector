@@ -48,7 +48,7 @@ export interface ProjectRole {
 }
 
 export interface ProjectRoleMap {
-  [name: string]: [uri: string]
+  [name: string]: {uri: string}
 }
 
 export class Project {
