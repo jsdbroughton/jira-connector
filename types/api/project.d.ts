@@ -2,59 +2,6 @@ import { Callback } from "../callback";
 import { PageBeanVersion } from "../models";
 import { AvatarUrls } from "./user";
 
-export interface UpdatedProjectCategory {
-  self: string;
-  id: string;
-  description: string;
-  name: string;
-}
-export interface ProjectForScope {
-  self: string;
-  id: string;
-  key: string;
-  name: string;
-  projectTypeKey: string;
-  simplified: boolean;
-  avatarUrls: AvatarUrls;
-  projectCategory: UpdatedProjectCategory
-}
-export interface Scope {
-  type: string;
-  project: ProjectForScope;
-}
-
-export interface ProjectRoleUser {
-  accountId: string;
-}
-
-export interface ProjectRoleGroup {
-  displayName: string;
-  name: string;
-}
-export interface RoleActor {
-  id: number;
-  displayName: string;
-  type: string;
-  name: string;
-  avatarUrl: string;
-  actorUser?: ProjectRoleUser;
-  actorGroup?: ProjectRoleGroup;
-}
-export interface ProjectRole {
-  self: string;
-  name: string;
-  id: number;
-  description: string;
-  actors: RoleActor[];
-  scope: Scope;
-  admin: boolean;
-  default: boolean;
-}
-
-export interface ProjectRoleMap {
-  [name: string]: {uri: string};
-}
-
 export class Project {
   getAllProjects(
     opts?: {
@@ -125,4 +72,57 @@ export class Project {
   updateRole(opts: any, callback?: Callback): Promise<any>;
 
   addToRole(opts: any, callback?: Callback): Promise<any>;
+}
+
+export interface UpdatedProjectCategory {
+  self: string;
+  id: string;
+  description: string;
+  name: string;
+}
+export interface ProjectForScope {
+  self: string;
+  id: string;
+  key: string;
+  name: string;
+  projectTypeKey: string;
+  simplified: boolean;
+  avatarUrls: AvatarUrls;
+  projectCategory: UpdatedProjectCategory
+}
+export interface Scope {
+  type: string;
+  project: ProjectForScope;
+}
+
+export interface ProjectRoleUser {
+  accountId: string;
+}
+
+export interface ProjectRoleGroup {
+  displayName: string;
+  name: string;
+}
+export interface RoleActor {
+  id: number;
+  displayName: string;
+  type: string;
+  name: string;
+  avatarUrl: string;
+  actorUser?: ProjectRoleUser;
+  actorGroup?: ProjectRoleGroup;
+}
+export interface ProjectRole {
+  self: string;
+  name: string;
+  id: number;
+  description: string;
+  actors: RoleActor[];
+  scope: Scope;
+  admin: boolean;
+  default: boolean;
+}
+
+export interface ProjectRoleMap {
+  [name: string]: {uri: string};
 }
