@@ -2,15 +2,15 @@ import { Callback } from "../callback";
 
 export class Priority {
   getAllPriorities(
-    opts?: never;
-    callback?: Callback;
+    opts?: never,
+    callback?: Callback
   ): Promise<IssuePriority[]>;
 
   getPriority(
     opts: {
       priorityId: string;
     },
-    callback? Callback
+    callback?: Callback
   ): Promise<IssuePriority>;
 }
 
