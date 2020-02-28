@@ -23,6 +23,10 @@ export interface Scope {
   project: ProjectForScope;
 }
 
+export interface ProjectRoleUser {
+  accountId: string;
+}
+
 export interface ProjectRoleGroup {
   displayName: string;
   name: string;
