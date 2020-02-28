@@ -12,7 +12,8 @@ export interface Priority {
 
 export class Priority {
   getAllPriorities(
-    callback?: Callback
+    opts?: never;
+    callback?: Callback;
   ): Promise<Priority[]>;
 
   getPriority(
