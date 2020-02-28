@@ -244,6 +244,32 @@ function ProjectClient(jiraClient) {
     };
 
     /**
+     * Contains an array roles in this project and the details for each role.
+     *
+     * @method getRoleDetails
+     * @memberOf ProjectClient#
+     * @param opts The request options sent to the Jira API.
+     * @param opts.projectIdOrKey The project id or project key
+     * @param opts.currentMember Whether the roles should be filtered to include only those the user is assigned to.
+     * @param opts.excludeConnectAddons Excludes addon actors.
+     * @param [callback] Called when the roles have been retrieved.
+     * @return {Promise} Resolved when the roles have been retrieved.
+     */
+    this.getRoleDetails = function (opts, callback) {
+      var options = {
+        uri: this.jiraClient.buildURL('/project/' + opts.projectIdOrKey + '/roledetails'),
+        method: 'GET',
+        json: true,
+        followAllRedirects: true,
+        qs: {
+          currentMember: opts.currentMember,
+          excludeConnectAddons: opts.excludeConnectAddons
+        }
+      };
+      return this.jiraClient.makeRequest(options, callback);
+  };
+
+    /**
      * Updates a project role to contain the sent actors.
      *
      * @method updateRole
