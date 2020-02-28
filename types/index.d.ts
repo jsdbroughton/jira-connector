@@ -14,6 +14,7 @@ import {
   Issue,
   IssueType,
   Labels,
+  Priority,
   Project,
   Search,
   Sprint,
@@ -59,7 +60,7 @@ export default class JiraClient {
   password: any;
   permissions: any;
   permissionScheme: any;
-  priority: any;
+  priority: Priority;
   project: Project;
   projectCategory: any;
   projectValidate: any;
