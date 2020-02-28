@@ -43,7 +43,7 @@ export default class JiraClient {
   epic: Epic;
   field: any;
   filter: any;
-  group: any;
+  group: Group;
   groupUserPicker: any;
   groups: any;
   issue: Issue;

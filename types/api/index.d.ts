@@ -7,6 +7,7 @@ export * from './backlog';
 export * from './board';
 export * from './developmentInformation';
 export * from './epic';
+export * from './group';
 export * from './issue';
 export * from './issueType';
 export * from './labels';
