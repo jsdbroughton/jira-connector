@@ -64,9 +64,16 @@ export class Project {
 
   getRoles(opts: { projectIdOrKey: string | number}, callback?: Callback): Promise<ProjectRoleMap>;
 
-  getRole(opts: { projectIdOrKey: string | number, id: number}, callback?: Callback): Promise<ProjectRole>;
+  getRole(opts: {
+    projectIdOrKey: string | number,
+    roleId: number
+  }, callback?: Callback): Promise<ProjectRole>;
 
-  getRoleDetails(opts: { projectIdOrKey: string | number, currentMember?: boolean, excludeConnectAddons?: boolean}, callback?: Callback): Promise<ProjectRole[]>;
+  getRoleDetails(opts: {
+    projectIdOrKey: string | number,
+    currentMember?: boolean,
+    excludeConnectAddons?: boolean
+  }, callback?: Callback): Promise<ProjectRole[]>;
 
 
   updateRole(opts: any, callback?: Callback): Promise<any>;
