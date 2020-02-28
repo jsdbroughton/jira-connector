@@ -11,6 +11,7 @@ import {
   Board,
   DevelopmentInformation,
   Epic,
+  Group,
   Issue,
   IssueType,
   Labels,
