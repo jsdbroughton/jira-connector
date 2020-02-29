@@ -4,7 +4,7 @@ import { AvatarUrls } from "./user";
 export class Group {
   getMembers(
     opts: {
-      groupName:string;
+      groupName: string;
       includeInactiveUsers?: boolean;
       startAt?: number;
       maxResults?: number;
@@ -20,7 +20,7 @@ export interface UserDetailsPage {
   startAt: number;
   total: number;
   isLast: boolean;
-  values: UserDetails[]
+  values: UserDetails[];
 }
 
 export interface UserDetails {
