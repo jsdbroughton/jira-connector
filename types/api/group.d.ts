@@ -4,11 +4,11 @@ import { AvatarUrls } from "./user";
 export class Group {
   getMembers(
     opts: {
-      groupName:string,
-      includeInactiveUsers?: boolean,
-      startAt?: number,
-      maxResults?: number
-    }
+      groupName:string;
+      includeInactiveUsers?: boolean;
+      startAt?: number;
+      maxResults?: number;
+    },
     callback?: Callback
   ): Promise<UserDetailsPage>;
 }
