@@ -11,7 +11,7 @@ export class Project {
       apiVersion?: string | number | 2 | 3;
     },
     callback?: Callback
-  ): Promise<any>;
+  ): Promise<ProjectInfo[]>;
 
   updateProject(
     opts: {
@@ -40,19 +40,19 @@ export class Project {
     callback?: Callback
   ): Promise<any>;
 
-  createProject(opts?: any, callback?: Callback): Promise<any>;
+  createProject( opts?: any, callback?: Callback ): Promise<any>;
 
-  getProjectProperties(opts: any, callback?: Callback): Promise<any>;
+  getProjectProperties( opts: any, callback?: Callback ): Promise<any>;
 
-  getProject(opts: any, callback?: Callback): Promise<any>;
+  getProject( opts: any, callback?: Callback ): Promise<any>;
 
-  getComponents(opts: any, callback?: Callback): Promise<any>;
+  getComponents( opts: any, callback?: Callback ): Promise<any>;
 
-  getStatuses(opts: any, callback?: Callback): Promise<any>;
+  getStatuses( opts: any, callback?: Callback ): Promise<any>;
 
-  getVersions(opts: any, callback?: Callback): Promise<any>;
+  getVersions( opts: any, callback?: Callback ): Promise<any>;
 
-  getVersionsPaginated(opts: {
+  getVersionsPaginated( opts: {
     projectIdOrKey: string;
     startAt?: number;
     maxResults?: number;
@@ -60,25 +60,24 @@ export class Project {
     query?: string;
     status?: string;
     expand?: any[];
-  }, callback?: Callback): Promise<PageBeanVersion>;
+  }, callback?: Callback ): Promise<PageBeanVersion>;
 
-  getRoles(opts: { projectIdOrKey: string | number}, callback?: Callback): Promise<ProjectRoleMap>;
+  getRoles( opts: { projectIdOrKey: string | number}, callback?: Callback ): Promise<ProjectRoleMap>;
 
-  getRole(opts: {
-    projectIdOrKey: string | number,
-    roleId: number
-  }, callback?: Callback): Promise<ProjectRole>;
+  getRole( opts: {
+    projectIdOrKey: string | number;
+    roleId: number;
+  }, callback?: Callback ): Promise<ProjectRole>;
 
-  getRoleDetails(opts: {
-    projectIdOrKey: string | number,
-    currentMember?: boolean,
-    excludeConnectAddons?: boolean
-  }, callback?: Callback): Promise<ProjectRole[]>;
+  getRoleDetails( opts: {
+    projectIdOrKey: string | number;
+    currentMember?: boolean;
+    excludeConnectAddons?: boolean;
+  }, callback?: Callback ): Promise<ProjectRole[]>;
 
+  updateRole( opts: any, callback?: Callback ): Promise<any>;
 
-  updateRole(opts: any, callback?: Callback): Promise<any>;
-
-  addToRole(opts: any, callback?: Callback): Promise<any>;
+  addToRole( opts: any, callback?: Callback ): Promise<any>;
 }
 
 export interface UpdatedProjectCategory {
@@ -95,7 +94,7 @@ export interface ProjectForScope {
   projectTypeKey: string;
   simplified: boolean;
   avatarUrls: AvatarUrls;
-  projectCategory: UpdatedProjectCategory
+  projectCategory: UpdatedProjectCategory;
 }
 export interface Scope {
   type: string;
@@ -132,4 +131,40 @@ export interface ProjectRole {
 
 export interface ProjectRoleMap {
   [name: string]: {uri: string};
+}
+
+export interface ProjectInfo {
+  expand: string;
+  self: string;
+  id: string;
+  key: string;
+  description: string;
+  lead: any; //User;
+  components: any[]; //Component[];
+  issueTypes: any; //IssueTypeDetails[];
+  url: string;
+  email: string;
+  assigneeType: string;
+  versions: any[]; //Version[];
+  name: string;
+  roles: object;
+  avatarUrls: AvatarUrls;
+  projectCategory: any; //ProjectCategory;
+  projectTypeKey: string;
+  simplified: boolean;
+  style: string;
+  favourite: boolean;
+  isPrivate: boolean;
+  issueTypeHierachy: any; //Hierarchy;
+  permissions: any; //ProjectPermissions;
+  properties: object;
+  uuid: string;
+  insight: any; //ProjectInsight;
+  deleted: boolean;
+  retentionTillDate: string;
+  deletedDate: string;
+  deletedBy: any; //User;
+  archived: boolean;
+  archivedDate: string;
+  archivedBy: any; //User;
 }
